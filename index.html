@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <title>Examen Diagnostico</title>
+  </head>
+  <body>
+    <div class="navbar bg-base-100 mt-5 flex flex-row justify-between px-20">
+      <a class="btn btn-ghost normal-case text-xl">Users</a>
+      <!-- Open the modal using ID.showModal() method -->
+      <button class="btn btn-secondary" onclick="my_modal_1.showModal()">
+        Nuevo
+      </button>
+      <dialog id="my_modal_1" class="modal">
+        <div class="modal-box">
+          <h3 class="font-bold text-lg">Nuevo Usuario</h3>
+          <form
+            method="POST"
+            onsubmit="createUser(); return false;"
+            class="body grid grid-cols-2 gap-4 mx-5 my-10">
+            <input
+              type="text"
+              id="email"
+              placeholder="email"
+              class="input input-bordered input-secondary w-full max-w-xs" />
+            <input
+              type="text"
+              id="firstname"
+              placeholder="firstname"
+              class="input input-bordered input-secondary w-full max-w-xs" />
+            <input
+              type="text"
+              id="lastname"
+              placeholder="lastname"
+              class="input input-bordered input-secondary w-full max-w-xs" />
+            <button type="submit" class="btn btn-secondary">Crear</button>
+          </form>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn btn-secondary">Cerrar</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    </div>
+    <div class="container mx-auto py-10">
+      <div class="users-container">
+        <div
+          class="grid grid-cols-1 px-24 gap-4 md:grid-cols-3"
+          id="listUsers"></div>
+      </div>
+    </div>
+    <dialog id="alert_modal" class="modal">
+      <div class="modal-box">
+        <h3 id="alert_title" class="font-bold text-lg"></h3>
+        <p id="alert_message"></p>
+        <div class="modal-action">
+          <button class="btn btn-secondary" onclick="closeAlertModal()">
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </dialog>
+    <script src="./index.js"></script>
+  </body>
+</html>
